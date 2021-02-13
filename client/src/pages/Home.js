@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import { Input, SubmitBtn } from "../components/SearchForm";
 import API from "../utils/API";
 
-// import ResultList from "../components/ResultList/ResultList";
+import Result from "../components/Result";
 
 class Home extends Component {
   state = {
@@ -13,11 +13,12 @@ class Home extends Component {
     search: "",
   };
 
-  // Create function to search for books through Google API
+  // Get books from google API
   bookSearch = () => {
     API.getGoogleBooks(this.state.search)
       .then((res) => {
-        console.log("This is res.data", res.data.items);
+        // console.log(res);
+        console.log("res.data.items", res.data.items);
         this.setState({
           books: res.data.items,
           search: "",
@@ -26,7 +27,7 @@ class Home extends Component {
       .catch((err) => console.log(err));
   };
 
-  //   Create function to handle input data
+  //Handle input data
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -34,25 +35,11 @@ class Home extends Component {
     });
   };
 
-  //   Create function to handle form data submission
+  //Handle form submision
   handleFormSubmit = (event) => {
     event.preventDefault();
     this.bookSearch();
   };
-
-  //   saveGoogleBook = (currentBook) => {
-  //     console.log("This is the current book", currentBook);
-  //     API.saveBook({
-  //       id: currentBook.id,
-  //       title: currentBook.title,
-  //       authors: currentBook.authors,
-  //       description: currentBook.description,
-  //       image: currentBook.image,
-  //       link: currentBook.link,
-  //     })
-  //       .then((res) => console.log("Successful POST to DB!", res))
-  //       .catch((err) => console.log("this is the error", err));
-  //   };
 
   render() {
     return (
@@ -76,7 +63,11 @@ class Home extends Component {
               </form>
             </Col>
           </Row>
-          {/* <ResultList /> */}
+          {this.state.books.length ? (
+            <Result searchResult={this.state.books}></Result>
+          ) : (
+            <h3> NO RESULT TO DISPLAY </h3>
+          )}
         </Container>
       </div>
     );
