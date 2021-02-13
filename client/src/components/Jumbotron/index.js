@@ -7,7 +7,7 @@ function Jumbotron() {
         <h1 className="text-center jumboText">Google Books Search</h1>
         <br></br>
         <h3 className="text-center jumboText">
-          Search and Save Books if Interest
+          Search and Save Books of Interest
         </h3>
       </div>
     </div>
