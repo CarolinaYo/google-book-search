@@ -4,8 +4,8 @@ import React from "react";
 
 export function Input(props) {
   return (
-    <div className="form-group">
-      <input className="form-control" {...props} />
+    <div className="form-group col-auto">
+      <input className="form-control" type="text" {...props} />
     </div>
   );
 }
@@ -14,8 +14,8 @@ export function SubmitBtn(props) {
   return (
     <button
       {...props}
-      style={{ float: "right", marginBottom: 10 }}
-      className="btn submitBtn"
+      style={{ background: "#2196f3", float: "right", marginBottom: 10 }}
+      className="btn submitBtn mb-3"
     >
       Search
     </button>
