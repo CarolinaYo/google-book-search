@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron";
-import Navbar from "../components/Navbar";
-import { Input, SubmitBtn } from "../components/SearchForm";
 import API from "../utils/API";
-
 import Result from "../components/Result";
+
+import { Container, Row, Col } from "../components/Grid";
+import Navbar from "../components/Navbar";
+import Jumbotron from "../components/Jumbotron";
+import { Input, SubmitBtn } from "../components/SearchForm";
 
 class Home extends Component {
   state = {
@@ -13,7 +13,7 @@ class Home extends Component {
     search: "",
   };
 
-  // Get books from google API
+  // Google API
   bookSearch = () => {
     API.getGoogleBooks(this.state.search)
       .then((res) => {
@@ -27,7 +27,7 @@ class Home extends Component {
       .catch((err) => console.log(err));
   };
 
-  //Handle input data
+  //Handle input from search book form
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({
