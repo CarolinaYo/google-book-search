@@ -1,7 +1,6 @@
 const express = require("express");
-// const path = require("path");
 
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
@@ -15,10 +14,17 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Connect to the Mongo DB
-// mongoose.connect(
-//   process.env.MONGODB_URI || "mongodb://localhost/googlebooklist"
-// );
+// // Connect to the Mongo DB
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/booklist");
+mongoose
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/booklist", {
+    dbName: "booklist",
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("mongoDB connected"))
+  .catch((err) => console.log(err));
 
 // Define API routes here
 app.use(routes);

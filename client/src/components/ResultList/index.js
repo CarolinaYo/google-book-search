@@ -1,6 +1,12 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 
 class ResultList extends Component {
+  handleSave() {
+    console.log("console for handlesave:", this);
+    API.saveBook(this.props);
+  }
+
   render() {
     return (
       <div className="list-overflow-container">
@@ -28,6 +34,13 @@ class ResultList extends Component {
                   style={{ marginRight: "6px" }}
                 >
                   View Book
+                </a>
+                <a
+                  className="btn btn-primary"
+                  style={{ marginRight: "6px" }}
+                  onClick={this.handleSave.bind(this)}
+                >
+                  Save Book
                 </a>
               </div>
             </div>

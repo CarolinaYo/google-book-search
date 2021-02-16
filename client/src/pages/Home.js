@@ -55,7 +55,7 @@ class Home extends Component {
                   value={this.state.search}
                   onChange={this.handleInputChange}
                   name="search"
-                  placeholder="e.g Cookbook for Nerds"
+                  placeholder="e.g Fancy Nancy"
                 />
                 <div>
                   <SubmitBtn onClick={this.handleFormSubmit} />
@@ -66,7 +66,7 @@ class Home extends Component {
           {this.state.books.length ? (
             <Result searchResult={this.state.books}></Result>
           ) : (
-            <h3> NO RESULT TO DISPLAY </h3>
+            ((<br></br>), (<h5> NO RESULT TO DISPLAY </h5>))
           )}
         </Container>
       </div>
