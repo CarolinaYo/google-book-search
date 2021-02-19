@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-// import Result from "../components/Result";
+import SavedBookList from "../components/SavedBooksList";
 
-import { Container, Row, Col } from "../components/Grid";
+import { Container, Row } from "../components/Grid";
 import Navbar from "../components/Navbar";
 import Jumbotron from "../components/Jumbotron";
 
@@ -11,6 +11,16 @@ class Saved extends Component {
     savedBooks: [],
   };
 
+  getBooks = () => {
+    API.getSavedBooks(this.state.savedBooks)
+      .then((res) => {
+        console.log("Saved items:", res);
+        //   this.setState({})
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   render() {
     return (
       <div>
