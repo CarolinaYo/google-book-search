@@ -9,7 +9,7 @@ function Navbar() {
       <Link className="navbar-brand navbar-name text-white" to="/">
         Google Book Search
       </Link>
-      <div className="collapse navbar-collapse justify-content-end">
+      <div className="collapse navbar-collapse">
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link
