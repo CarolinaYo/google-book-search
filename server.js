@@ -15,13 +15,14 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // // Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/booklist");
+
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/booklist", {
     dbName: "booklist",
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   })
   .then(() => console.log("mongoDB connected"))
   .catch((err) => console.log(err));
