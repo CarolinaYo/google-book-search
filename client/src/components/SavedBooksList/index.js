@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 
-class ResultList extends Component {
-  handleSave() {
-    console.log("console for handlesave:", this);
-    API.saveBook(this.props);
+class SavedBookList extends Component {
+  handleDelete() {
+    console.log("console for handleDelete:", this.props);
+    API.deleteBook(this.props.id).then((res) => {
+      console.log("res: ", res);
+      this.props.getBooks();
+    });
   }
 
   render() {
+    // console.log("finding author: ", this.props);
     return (
       <div className="list-overflow-container">
         <ul className="list-group">
@@ -35,13 +39,13 @@ class ResultList extends Component {
                 >
                   View Book
                 </a>
-                <a
-                  className="btn btn-primary"
+                <button
+                  className="btn btn-warning"
+                  onClick={this.handleDelete.bind(this)}
                   style={{ marginRight: "6px" }}
-                  onClick={this.handleSave.bind(this)}
                 >
-                  Save Book
-                </a>
+                  Delete Book
+                </button>
               </div>
             </div>
           </li>
@@ -51,4 +55,4 @@ class ResultList extends Component {
   }
 }
 
-export default ResultList;
+export default SavedBookList;

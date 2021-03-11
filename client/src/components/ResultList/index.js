@@ -35,13 +35,13 @@ class ResultList extends Component {
                 >
                   View Book
                 </a>
-                <a
+                <button
                   className="btn btn-primary"
                   style={{ marginRight: "6px" }}
                   onClick={this.handleSave.bind(this)}
                 >
                   Save Book
-                </a>
+                </button>
               </div>
             </div>
           </li>

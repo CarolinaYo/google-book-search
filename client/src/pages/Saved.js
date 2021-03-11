@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import SavedBookList from "../components/SavedBooksList";
+import SavedBooks from "../components/SavedBooks";
 
 import { Container, Row } from "../components/Grid";
 import Navbar from "../components/Navbar";
@@ -11,16 +11,21 @@ class Saved extends Component {
     savedBooks: [],
   };
 
+  componentDidMount = () => {
+    this.getBooks();
+  };
+
   getBooks = () => {
-    API.getSavedBooks(this.state.savedBooks)
+    API.getSavedBooks()
       .then((res) => {
-        console.log("Saved items:", res);
-        //   this.setState({})
+        console.log("Saved item:", res);
+        this.setState({ savedBooks: res.data });
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
   render() {
     return (
       <div>
@@ -29,7 +34,10 @@ class Saved extends Component {
           <Jumbotron />
           <Row>
             {this.state.savedBooks.length ? (
-              <SavedBookList savedBooks={this.state.savedBooks}></SavedBookList>
+              <SavedBooks
+                savedBooks={this.state.savedBooks}
+                getBooks={this.getBooks}
+              ></SavedBooks>
             ) : (
               ((<br></br>), (<h5> YOUR LIBRARY IS EMPTY </h5>))
             )}
