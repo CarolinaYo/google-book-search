@@ -2,16 +2,16 @@
 
 This application is created using MERN stack. The functionalities of the app is to allow user to search for books by title, save their book search, view saved books and delete from their collection. The search for books is using Google Books API.
 
-## Live deployment: Heroku
+## Live deployment: [Heroku](https://book-search-mern.herokuapp.com/)
 
 ## Technology used
 
-React
-MongoDB
-Bootstrap
-Express
-Node
-Axios
+- React
+- MongoDB
+- Bootstrap
+- Express
+- Node
+- Axios
 
 # Installation
 
@@ -31,4 +31,4 @@ Image by <a href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribu
 This is an individual assignment maintained by Carolina Yoedhana.
 
 - GitHub repo: https://github.com/CarolinaYo/google-book-search.git
-- Deployed Heroku link:
+- Deployed Heroku link: https://book-search-mern.herokuapp.com/
